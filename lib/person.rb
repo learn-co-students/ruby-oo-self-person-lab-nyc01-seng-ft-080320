@@ -1,5 +1,5 @@
 # Code developed by Vincent Collis and Tim Butler
-# require 'pry'
+require 'pry'
 
 class Person
     attr_reader :name
@@ -8,8 +8,8 @@ class Person
     def initialize(name, bank_account=25, happiness = 8, hygiene = 8) 
         @name = name
         @bank_account = bank_account
-        @happiness = happiness
-        @hygiene = hygiene
+        @happiness = happiness_check(happiness)
+        @hygiene = hygiene_check(hygiene)
     end
 
     def hygiene_check(hygiene)
@@ -78,6 +78,7 @@ class Person
             person.happiness += 3
             person.happiness_check(person.happiness)
         end
+        puts "Hi #{person}! It's #{self.name}. How are you?"
     end
 
     def start_conversation(person, topic)
@@ -96,4 +97,4 @@ class Person
     end
 end
 
-
+# binding.pry
