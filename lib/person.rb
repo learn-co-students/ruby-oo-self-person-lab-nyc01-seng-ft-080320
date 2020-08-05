@@ -3,14 +3,14 @@ require 'pry'
 class Person
 
     attr_reader :name
-    attr_accessor :bank
+    attr_accessor :bank_account
     attr_writer :hygiene, :happiness
 
     @@People = []
 
-    def initialize(name, bank=25, happiness=8, hygiene=8)
+    def initialize(name, bank_account=25, happiness=8, hygiene=8)
         @name = name
-        @bank = bank
+        @bank_account = bank_account
         @happiness = happiness
         @hygiene = hygiene
         @@People << name
@@ -42,19 +42,19 @@ class Person
     end
 
     def get_paid(salary)
-        @bank = salary + @bank
-        puts "all about the benjamins"
+        @bank_account = salary + @bank_account
+        "all about the benjamins"
     end
 
     def take_bath
-        @hygiene = @hygiene + 4
-        puts "♪ Rub-a-dub just relaxing in the tub ♫"
+        @hygiene = self.hygiene += 4
+        "♪ Rub-a-dub just relaxing in the tub ♫"
     end
 
     def work_out
-        @happiness = @happiness + 2
-        @hygiene = @hygiene - 2
-        puts "♪ another one bites the dust ♫"
+        @happiness = self.happiness += 2
+        @hygiene = self.hygiene -= 3
+        "♪ another one bites the dust ♫"
     end
 
     def call_friend(friend)
