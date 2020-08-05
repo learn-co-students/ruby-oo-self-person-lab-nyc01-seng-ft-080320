@@ -16,12 +16,7 @@ class Person
     end
 
     def hygiene=(hygiene)
-        if hygiene > 10
-            hygiene = 10
-        elsif hygiene < 0
-            @hygiene = 0
-        end 
-        @hygiene
+        @hygiene = hygiene.clamp(0, 10)
     end
 
     def happiness=(happiness)
