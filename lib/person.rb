@@ -2,8 +2,9 @@ require 'pry'
 
 class Person
 
-    attr_reader :name, :hygiene, :happiness
+    attr_reader :name
     attr_accessor :bank
+    attr_writer :hygiene, :happiness
 
     @@People = []
 
@@ -15,11 +16,12 @@ class Person
         @@People << name
     end
 
-    def hygiene=(hygiene)
-        @hygiene = hygiene.clamp(0, 10)
+    def hygiene
+        @hygiene.clamp(0, 10)
     end
 
-    def happiness=(happiness)
+    def happiness
+        @happiness.clamp(0, 10)
     end
 
 
@@ -85,12 +87,12 @@ class Person
 end
 
 
-kevin = Person.new("Kevin")
-russell = Person.new("Russell")
+#kevin = Person.new("Kevin")
+#russell = Person.new("Russell")
 
 
-binding.pry
+#binding.pry
 
-kevin.start_conversation(russell, "Politics")
+#kevin.start_conversation(russell, "Politics")
 
-russell.hygiene = 12
+#russell.hygiene = 12
