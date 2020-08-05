@@ -59,29 +59,30 @@ class Person
 
     def call_friend(friend)
 
-        @@People.each do |friends|
-        if friend == friends
-            friend.happiness += 3
-            self.happiness += 3
-        elsif
-        puts "Hi #{friend.name}! It's #{self.name}. How are you?"
+        [friend, self].each do |friends|
+            friends.happiness += 3
         end
-        end
+        "Hi #{friend.name}! It's #{self.name}. How are you?"
     end
+
 
     def start_conversation(starter, topic)
 
-        if topic == "Politics"
-            puts "blah blah partisan blah lobbyist"
-            starter.happiness -= 1
-            self.happiness -= 1
-        elsif topic == "Weather"
+        if topic == "politics"
+            starter.happiness -= 2
+            self.happiness -= 2
+            "blah blah partisan blah lobbyist"
+        elsif topic == "weather"
             starter.happiness += 1
             self.happiness += 1
-            puts "blah blah sun blah rain"
-        elsif !topic == "Politics" || "Weather"
-            puts "blah blah blah blah blah"
+            "blah blah sun blah rain"
+        elsif !topic == "politics" || "weather"
+            "blah blah blah blah blah"
         end
+    end
+
+    def self.all
+        @@People
     end
 
 end
